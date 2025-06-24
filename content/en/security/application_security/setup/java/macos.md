@@ -112,6 +112,15 @@ echo 'export DD_SERVICE=<YOUR_SERVICE_NAME>' >> ~/.zshrc
 echo 'export DD_ENV=<YOUR_ENVIRONMENT>' >> ~/.zshrc
 ```
 
+### With APM Tracing Disabled
+
+If you want to use Application Security Management without APM tracing functionality, you can deploy with <a href="/security/application_security/setup/standalone/java">Standalone App and API Protection</a>. This configuration reduces the amount of APM data sent to Datadog to the minimum required by App and API Protection products.
+
+To enable standalone mode:
+1. Set `DD_APM_TRACING_ENABLED=false` environment variable
+2. Keep `DD_APPSEC_ENABLED=true` environment variable
+3. This configuration will minimize APM data while maintaining full security monitoring capabilities
+
 ## Verify setup
 
 To verify that App and API Protection is working correctly:
