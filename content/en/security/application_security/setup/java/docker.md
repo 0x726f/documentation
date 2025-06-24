@@ -51,17 +51,13 @@ To check that your service's language and framework versions are supported for A
 
 ## Service configuration
 
-### Run your application with App and API Protection enabled
-{{% tabs %}}
-  {{% tab "APM Tracing Enabled" %}}
-
 Start your Java application with the Datadog agent and App and API Protection enabled:
 
 ```dockerfile
 ENTRYPOINT ["java", "-javaagent:/dd-java-agent.jar", "-Ddd.appsec.enabled=true", "-Ddd.service=<MY_SERVICE>", "-Ddd.env=<MY_ENV>", "-jar", "/app.jar"]
 ```
-  {{% /tab %}}
-  {{% tab "APM Tracing Disabled " %}}
+
+### With APM Tracing Disabled
 
 If you want to use Application Security Management without APM tracing functionality, you can deploy with <a href="/security/application_security/setup/standalone/java">Standalone App and API Protection</a>. This configuration reduces the amount of APM data sent to Datadog to the minimum required by App and API Protection products.
 
@@ -73,12 +69,6 @@ To enable standalone mode:
 ```dockerfile
 ENTRYPOINT ["java", "-javaagent:/dd-java-agent.jar", "-Ddd.appsec.enabled=true", "-Ddd.apm.tracing.enabled=false", "-Ddd.service=<MY_SERVICE>", "-Ddd.env=<MY_ENV>", "-jar", "/app.jar"]
 ```
-
-**Important considerations:**
-- **File system requirements**: Read-only file systems are not currently supported. The application must have access to a writable `/tmp` directory.
-- **Service identification**: Always specify `DD_SERVICE` (or `-Ddd.service`) and `DD_ENV` (or `-Ddd.env`) for proper service identification in Datadog.
-  {{% /tab %}}
-{{% /tabs %}}
 
 ## 2. Configure your Java application container
 
@@ -97,7 +87,7 @@ ENV DD_ENV=<YOUR_ENVIRONMENT>
 ENTRYPOINT ["java", "-javaagent:/dd-java-agent.jar", "-jar", "/app.jar"]
 ```
 
-## 3. Run your container
+## Run your container
 
 When running your container, make sure to:
 1. Connect it to the same Docker network as the Datadog Agent
@@ -113,7 +103,7 @@ docker run -d \
   your-java-app-image
 ```
 
-### Verify setup
+## Verify setup
 
 To verify that App and API Protection is working correctly:
 

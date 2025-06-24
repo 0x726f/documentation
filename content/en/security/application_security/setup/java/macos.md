@@ -52,17 +52,12 @@ To check that your service's language and framework versions are supported for A
 
 ## Service configuration
 
-### Run your application with App and API Protection enabled
-{{% tabs %}}
-  {{% tab "APM Tracing Enabled" %}}
-
 Start your Java application with the Datadog agent and App and API Protection enabled:
 
 ```bash
 java -javaagent:/path/to/dd-java-agent.jar -Ddd.appsec.enabled=true -Ddd.service=<MY_SERVICE> -Ddd.env=<MY_ENV> -jar path/to/app.jar
 ```
-  {{% /tab %}}
-  {{% tab "APM Tracing Disabled " %}}
+### With APM Tracing Disabled
 
 If you want to use Application Security Management without APM tracing functionality, you can deploy with <a href="/security/application_security/setup/standalone/java">Standalone App and API Protection</a>. This configuration reduces the amount of APM data sent to Datadog to the minimum required by App and API Protection products.
 
@@ -75,13 +70,7 @@ To enable standalone mode:
 java -javaagent:/path/to/dd-java-agent.jar -Ddd.appsec.enabled=true -Ddd.apm.tracing.enabled=false -Ddd.service=<MY_SERVICE> -Ddd.env=<MY_ENV> -jar path/to/app.jar
 ```
 
-**Important considerations:**
-- **File system requirements**: Read-only file systems are not currently supported. The application must have access to a writable `/tmp` directory.
-- **Service identification**: Always specify `DD_SERVICE` (or `-Ddd.service`) and `DD_ENV` (or `-Ddd.env`) for proper service identification in Datadog.
-  {{% /tab %}}
-{{% /tabs %}}
-
-### 2. Configure the Datadog Agent
+## Configure the Datadog Agent
 
 1. Create or edit the Agent configuration file:
    ```bash
@@ -103,7 +92,7 @@ java -javaagent:/path/to/dd-java-agent.jar -Ddd.appsec.enabled=true -Ddd.apm.tra
    sudo launchctl load -w /Library/LaunchDaemons/com.datadoghq.agent.plist
    ```
 
-### 3. Configure your Java application
+## Configure your Java application
 
 #### Set environment variables
 

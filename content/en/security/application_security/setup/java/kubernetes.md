@@ -52,10 +52,6 @@ To check that your service's language and framework versions are supported for A
 
 ## Service configuration
 
-### Run your application with App and API Protection enabled
-{{% tabs %}}
-  {{% tab "APM Tracing Enabled" %}}
-
 Start your Java application with the Datadog agent and App and API Protection enabled:
 
 ```yaml
@@ -79,8 +75,8 @@ spec:
         command: ["java"]
         args: ["-javaagent:/dd-java-agent.jar", "-jar", "/app.jar"]
 ```
-  {{% /tab %}}
-  {{% tab "APM Tracing Disabled " %}}
+
+### With APM Tracing Disabled
 
 If you want to use Application Security Management without APM tracing functionality, you can deploy with <a href="/security/application_security/setup/standalone/java">Standalone App and API Protection</a>. This configuration reduces the amount of APM data sent to Datadog to the minimum required by App and API Protection products.
 
@@ -89,15 +85,10 @@ To enable standalone mode:
 2. Keep `DD_APPSEC_ENABLED=true` environment variable
 3. This configuration will minimize APM data while maintaining full security monitoring capabilities
 
-**Important considerations:**
-- **File system requirements**: Read-only file systems are not currently supported. The application must have access to a writable `/tmp` directory.
-- **Service identification**: Always specify `DD_SERVICE` (or `-Ddd.service`) and `DD_ENV` (or `-Ddd.env`) for proper service identification in Datadog.
-  {{% /tab %}}
-{{% /tabs %}}
 
-### 2. Configure your Java application
+## Configure your Java application
 
-#### Add the Java agent to your container
+### Add the Java agent to your container
 
 Add the following to your Dockerfile:
 
@@ -111,7 +102,7 @@ ENV DD_SERVICE=<YOUR_SERVICE_NAME>
 ENV DD_ENV=<YOUR_ENVIRONMENT>
 ```
 
-#### Update your Kubernetes deployment
+### Update your Kubernetes deployment
 
 Modify your deployment YAML to include the Java agent:
 
@@ -137,7 +128,7 @@ spec:
         args: ["-javaagent:/dd-java-agent.jar", "-jar", "/app.jar"]
 ```
 
-### 3. Deploy your application
+## Deploy your application
 
 Apply your updated deployment:
 

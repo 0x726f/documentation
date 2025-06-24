@@ -33,6 +33,7 @@ This guide explains how to set up App and API Protection (AAP) for Java applicat
 
 ## Datadog Agent Setup
 Install the Datadog Agent by following the [setup instructions for Windows](/agent/?tab=Windows).
+
 ## Library setup
 
 To enable App and API Protection capabilities, you need the Datadog Java tracing library (version 0.94.0 or higher) installed in your application environment.
@@ -51,17 +52,12 @@ To check that your service's language and framework versions are supported for A
 
 ## Service configuration
 
-### Run your application with App and API Protection enabled
-{{% tabs %}}
-  {{% tab "APM Tracing Enabled" %}}
-
 Start your Java application with the Datadog agent and App and API Protection enabled:
 
 ```powershell
 java -javaagent:path\to\dd-java-agent.jar -Ddd.appsec.enabled=true -Ddd.service=<MY_SERVICE> -Ddd.env=<MY_ENV> -jar path\to\app.jar
 ```
-  {{% /tab %}}
-  {{% tab "APM Tracing Disabled " %}}
+### With APM Tracing Disabled
 
 If you want to use Application Security Management without APM tracing functionality, you can deploy with <a href="/security/application_security/setup/standalone/java">Standalone App and API Protection</a>. This configuration reduces the amount of APM data sent to Datadog to the minimum required by App and API Protection products.
 
@@ -74,11 +70,6 @@ To enable standalone mode:
 java -javaagent:path\to\dd-java-agent.jar -Ddd.appsec.enabled=true -Ddd.apm.tracing.enabled=false -Ddd.service=<MY_SERVICE> -Ddd.env=<MY_ENV> -jar path\to\app.jar
 ```
 
-**Important considerations:**
-- **File system requirements**: Read-only file systems are not currently supported. The application must have access to a writable temporary directory.
-- **Service identification**: Always specify `DD_SERVICE` (or `-Ddd.service`) and `DD_ENV` (or `-Ddd.env`) for proper service identification in Datadog.
-  {{% /tab %}}
-{{% /tabs %}}
 
 ## Verify setup
 
