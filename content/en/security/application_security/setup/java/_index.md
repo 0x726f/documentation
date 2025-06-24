@@ -1,5 +1,5 @@
 ---
-title: Enabling AAP for Java
+title: Enabling App and API Protection for Java
 code_lang: java
 type: multi-code-lang
 code_lang_weight: 0
