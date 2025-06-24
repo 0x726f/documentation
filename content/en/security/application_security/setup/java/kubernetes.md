@@ -31,38 +31,8 @@ This guide explains how to set up App and API Protection (AAP) for Java applicat
 - kubectl configured to access your cluster
 - Helm (recommended for Agent installation)
 
-## Setup
-
-### 1. Install the Datadog Agent
-
-Install the Datadog Agent using Helm:
-
-```bash
-helm repo add datadog https://helm.datadoghq.com
-helm repo update
-helm install datadog -f values.yaml datadog/datadog
-```
-
-Create a `values.yaml` file with the following configuration:
-
-```yaml
-datadog:
-  apiKey: <YOUR_API_KEY>
-  appKey: <YOUR_APP_KEY>
-  site: <YOUR_DD_SITE>
-  apm:
-    portEnabled: true
-  logs:
-    enabled: true
-    containerCollectAll: true
-  processAgent:
-    enabled: true
-  securityAgent:
-    compliance:
-      enabled: true
-    runtime:
-      enabled: true
-```
+## Datadog Agent Setup
+Install the Datadog Agent by following the [setup instructions for Kubernetes](/agent/?tab=cloud_and_container).
 
 ## Library setup
 

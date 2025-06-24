@@ -31,32 +31,8 @@ This guide explains how to set up App and API Protection (AAP) for Java applicat
 - Root or sudo privileges
 - Systemd (for service management)
 
-## Setup
-
-### 1. Install the Datadog Agent
-
-#### Using the one-line install script (recommended)
-
-```bash
-DD_AGENT_MAJOR_VERSION=7 DD_API_KEY=<YOUR_API_KEY> DD_SITE=<YOUR_DD_SITE> bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh)"
-```
-
-#### Manual installation
-
-For Debian/Ubuntu:
-```bash
-sudo apt-get update
-sudo apt-get install -y apt-transport-https curl gnupg
-sudo sh -c "echo 'deb https://apt.datadoghq.com/ stable 7' > /etc/apt/sources.list.d/datadog.list"
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A2923DFF56EDA6E76E55E492D3A80E30382E94DE
-sudo apt-get update
-sudo apt-get install -y datadog-agent
-```
-
-For RHEL/CentOS:
-```bash
-sudo yum install -y https://yum.datadoghq.com/rpm/x86_64/datadog-agent-7.x.x-1.x86_64.rpm
-```
+## Datadog Agent Setup
+Install the Datadog Agent by following the [setup instructions for Linux hosts](/agent/?tab=Linux).
 
 ## Library setup
 

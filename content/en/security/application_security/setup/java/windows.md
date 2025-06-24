@@ -31,12 +31,8 @@ This guide explains how to set up App and API Protection (AAP) for Java applicat
 - Datadog Agent installed on Windows
 - Administrator privileges for some configuration steps
 
-## Setup
-
-### 1. Install the Datadog Agent
-
-If you haven't already, install the Datadog Agent on your Windows host. You can download the installer from the [Datadog Agent installation page](https://docs.datadoghq.com/agent/basic_agent_usage/windows/).
-
+## Datadog Agent Setup
+Install the Datadog Agent by following the [setup instructions for Windows](/agent/?tab=Windows).
 ## Library setup
 
 To enable App and API Protection capabilities, you need the Datadog Java tracing library (version 0.94.0 or higher) installed in your application environment.

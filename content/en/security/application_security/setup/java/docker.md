@@ -30,22 +30,8 @@ This guide explains how to set up App and API Protection (AAP) for Java applicat
 - Java application containerized with Docker
 - Datadog Agent installed on the host or as a container
 
-# Setup
-
-## 1. Install and run the Datadog Agent
-
-If you haven't already, install the Datadog Agent on your host or as a container. For containerized installation:
-
-```bash
-docker run -d --name datadog-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
-  -v /proc/:/host/proc/:ro \
-  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e DD_API_KEY=<YOUR_API_KEY> \
-  -e DD_APM_ENABLED=true \
-  -e DD_APM_NON_LOCAL_TRAFFIC=true \
-  datadog/agent:latest
-```
+## Datadog Agent Setup
+Install the Datadog Agent by following the [setup instructions for Docker](/agent/?tab=cloud_and_container).
 
 ### Library setup
 

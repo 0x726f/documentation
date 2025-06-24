@@ -31,21 +31,8 @@ This guide explains how to set up App and API Protection (AAP) for Java applicat
 - Homebrew (recommended for Agent installation)
 - Administrator privileges for some configuration steps
 
-## Setup
-
-### 1. Install the Datadog Agent
-
-#### Using Homebrew (recommended)
-
-```bash
-brew install datadog/datadog/datadog-agent
-```
-
-#### Manual installation
-
-1. Download the macOS installer from the [Datadog Agent installation page][2]
-2. Open the downloaded `.dmg` file
-3. Follow the installation wizard
+## Datadog Agent Setup
+Install the Datadog Agent by following the [setup instructions for macOS](/agent/?tab=macOS).
 
 ## Library setup
 
