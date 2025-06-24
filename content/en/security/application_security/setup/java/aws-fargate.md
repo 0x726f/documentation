@@ -12,7 +12,7 @@ further_reading:
   text: "Troubleshooting App and API Protection"
 ---
 
-{{< partial name="app_and_api_protection/callout.html" >}}
+{{< partial name="app_and_api_protection/java/callout_java.html" >}}
 
 {{< partial name="app_and_api_protection/java/overview.html" >}}
 
